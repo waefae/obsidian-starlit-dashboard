@@ -6,26 +6,18 @@ import { createHero } from "../components/hero";
 import { createQuickActions } from "../components/quickActions";
 import { createSchedule } from "../components/schedule";
 import { createProject } from "../components/project";
+import { createIllustration } from "../components/illustration";
+import { createDeadlines } from "../components/deadlines";
 
 export function createHomepage(app: App) {
 
     const root = document.createElement("div");
     root.classList.add("starlit-homepage");
 
-    const illustrationImage = getVaultImage(
-    app,
-    "040 Projects/starlit-archive-project/assets/illustration.png"
-);
-
-    const deadlinesImage = getVaultImage(
-    app,
-    "040 Projects/starlit-archive-project/assets/deadlines.png"
-);
-
     root.innerHTML = `
         
-        <div class="deadlines-block"></div>
-        <div class="illustration-block"></div>
+        <div class="deadlines-placeholder"></div>
+        <div class="illustration-placeholder"></div>
         <div class="schedule-placeholder"></div>
 
         <div class="project-placeholder"></div>
@@ -66,23 +58,17 @@ export function createHomepage(app: App) {
         ".project-placeholder"
     )?.replaceWith(project);
     
-    const illustration = root.querySelector(".illustration-block") as HTMLElement;
+    const illustration = createIllustration(app);
 
-if (illustrationImage) {
-    illustration.style.setProperty(
-        "--illustration-image",
-        `url("${illustrationImage}")`
-    );
-}
+    root.querySelector(
+        ".illustration-placeholder"
+    )?.replaceWith(illustration);
 
-    const deadlines = root.querySelector(".deadlines-block") as HTMLElement;
+    const deadlines = createDeadlines(app);
 
-if (deadlinesImage) {
-    deadlines.style.setProperty(
-        "--deadlines-image",
-        `url("${deadlinesImage}")`
-    );
-}
+    root.querySelector(
+        ".deadlines-placeholder"
+    )?.replaceWith(deadlines);
 
     // =========================
     // CALENDAR INIT (ВАЖНО!)
