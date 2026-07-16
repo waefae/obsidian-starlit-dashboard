@@ -5,16 +5,12 @@ import { createFocus } from "../components/focus";
 import { createHero } from "../components/hero";
 import { createQuickActions } from "../components/quickActions";
 import { createSchedule } from "../components/schedule";
+import { createProject } from "../components/project";
 
 export function createHomepage(app: App) {
 
     const root = document.createElement("div");
     root.classList.add("starlit-homepage");
-
-    const projectImage = getVaultImage(
-        app,
-        "040 Projects/starlit-archive-project/assets/project.png"
-    );
 
     const illustrationImage = getVaultImage(
     app,
@@ -32,10 +28,7 @@ export function createHomepage(app: App) {
         <div class="illustration-block"></div>
         <div class="schedule-placeholder"></div>
 
-        <div class="project-block">
-            <div class="project-overlay"></div>
-            <div class="project-content">PROJECT</div>
-        </div>
+        <div class="project-placeholder"></div>
 
         <div class="subjects-block">subjects</div>
 
@@ -67,10 +60,11 @@ export function createHomepage(app: App) {
 
     schedulePlaceholder?.replaceWith(schedule);
 
-    const project = root.querySelector(".project-block") as HTMLElement;
-    if (projectImage) {
-        project.style.setProperty("--project-image", `url("${projectImage}")`);
-    }
+    const project = createProject(app);
+
+    root.querySelector(
+        ".project-placeholder"
+    )?.replaceWith(project);
     
     const illustration = root.querySelector(".illustration-block") as HTMLElement;
 
