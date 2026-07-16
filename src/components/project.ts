@@ -1,5 +1,6 @@
 import { App } from "obsidian";
 import { getVaultImage } from "../utils/image";
+import { ASSET_PATH } from "../constants";
 
 export function createProject(app: App): HTMLElement {
 
@@ -16,7 +17,7 @@ export function createProject(app: App): HTMLElement {
 
     const projectImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/project.png"
+        `${ASSET_PATH}/project.png`
     );
 
     if (projectImage) {

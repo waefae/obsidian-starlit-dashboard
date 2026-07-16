@@ -1,35 +1,38 @@
 import { App } from "obsidian";
 import { getVaultImage } from "../utils/image";
+import { ASSET_PATH } from "../constants";
 
 export function createHero(app: App): HTMLElement {
 
     const hero = document.createElement("div");
+
     hero.classList.add("hero-banner");
 
     const heroImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/banner.png"
+        `${ASSET_PATH}/banner.png`
     );
 
     const archiveText = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/text/starlit-archive.png"
+        `${ASSET_PATH}/text/starlit-archive.png`
     );
 
     const semesterText = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/text/summer-semester.png"
+        `${ASSET_PATH}/text/summer-semester.png`
     );
 
     const startQuote = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/text/start-quote.png"
+        `${ASSET_PATH}/text/start-quote.png`
     );
 
     hero.innerHTML = `
         <div class="hero-content">
 
             <div class="hero-text-stack">
+
                 <div class="archive-title"></div>
 
                 <div class="semester-title"></div>
@@ -37,6 +40,7 @@ export function createHero(app: App): HTMLElement {
                 <div class="semester-divider"></div>
 
                 <div class="start-quote"></div>
+
             </div>
 
         </div>
@@ -46,11 +50,13 @@ export function createHero(app: App): HTMLElement {
         </div>
     `;
 
-        if (heroImage) {
+    if (heroImage) {
+
         hero.style.setProperty(
             "--hero-image",
             `url("${heroImage}")`
         );
+
     }
 
     const archiveTitle = hero.querySelector(
@@ -58,10 +64,12 @@ export function createHero(app: App): HTMLElement {
     ) as HTMLElement;
 
     if (archiveText) {
+
         archiveTitle.style.setProperty(
             "--archive-title",
             `url("${archiveText}")`
         );
+
     }
 
     const semesterTitle = hero.querySelector(
@@ -69,10 +77,12 @@ export function createHero(app: App): HTMLElement {
     ) as HTMLElement;
 
     if (semesterText) {
+
         semesterTitle.style.setProperty(
             "--semester-title",
             `url("${semesterText}")`
         );
+
     }
 
     const startQuoteEl = hero.querySelector(
@@ -80,11 +90,14 @@ export function createHero(app: App): HTMLElement {
     ) as HTMLElement;
 
     if (startQuote) {
+
         startQuoteEl.style.setProperty(
             "--start-quote",
             `url("${startQuote}")`
         );
+
     }
 
-        return hero;
+    return hero;
+
 }

@@ -1,4 +1,5 @@
 import { App } from "obsidian";
+import { ASSET_PATH } from "../constants";
 
 export function createQuickActions(app: App): HTMLElement {
 

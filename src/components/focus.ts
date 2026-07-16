@@ -1,29 +1,31 @@
 import { App } from "obsidian";
 import { getVaultImage } from "../utils/image";
+import { ASSET_PATH } from "../constants";
 
 export function createFocus(app: App): HTMLElement {
 
     const focus = document.createElement("div");
+
     focus.classList.add("focus-block");
 
     const focusImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/focus/focus.png"
+        `${ASSET_PATH}/focus/focus.png`
     );
 
     const borderImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/focus/border.png"
+        `${ASSET_PATH}/focus/border.png`
     );
 
     const selectImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/focus/select.png"
+        `${ASSET_PATH}/focus/select.png`
     );
 
     const badgeImage = getVaultImage(
         app,
-        "040 Projects/starlit-archive-project/assets/focus/badge.png"
+        `${ASSET_PATH}/focus/badge.png`
     );
 
     focus.innerHTML = `
@@ -44,29 +46,21 @@ export function createFocus(app: App): HTMLElement {
                 <div class="course-grid">
 
                     <div class="course-title">
-
                         Quantum Mechanics
-
                     </div>
 
                     <div class="course-counter">
-
                         2 / 5
-
                     </div>
 
                     <div class="course-subtitle">
-
                         Lecture 7
-
                     </div>
 
                 </div>
 
                 <div class="course-progress">
-
                     <div class="course-progress-fill"></div>
-
                 </div>
 
             </div>
@@ -74,27 +68,18 @@ export function createFocus(app: App): HTMLElement {
             <div class="focus-tasks">
 
                 <div class="task">
-
                     <span class="task-dot"></span>
-
                     Write essay
-
                 </div>
 
                 <div class="task completed">
-
                     <span class="task-dot"></span>
-
                     Read chapter 3
-
                 </div>
 
                 <div class="task">
-
                     <span class="task-dot"></span>
-
                     Review notes
-
                 </div>
 
             </div>
