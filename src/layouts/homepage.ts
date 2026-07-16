@@ -8,6 +8,9 @@ import { createSchedule } from "../components/schedule";
 import { createProject } from "../components/project";
 import { createIllustration } from "../components/illustration";
 import { createDeadlines } from "../components/deadlines";
+import { createSubjects } from "../components/subjects";
+import { createTR } from "../components/tr";
+import { createBottom } from "../components/bottom";
 
 export function createHomepage(app: App) {
 
@@ -22,14 +25,11 @@ export function createHomepage(app: App) {
 
         <div class="project-placeholder"></div>
 
-        <div class="subjects-block">subjects</div>
+        <div class="subjects-placeholder"></div>
 
-        <div class="tr-block">
-            <div class="recent-notes">recent-notes</div>
-            <div class="tasks-block">tasks</div>
-        </div>
+        <div class="tr-placeholder"></div>
 
-        <div class="bottom-block">BOTTOM</div>
+        <div class="bottom-placeholder"></div>
     `;
 
     const hero = createHero(app);
@@ -69,6 +69,24 @@ export function createHomepage(app: App) {
     root.querySelector(
         ".deadlines-placeholder"
     )?.replaceWith(deadlines);
+
+    const subjects = createSubjects(app);
+
+    root.querySelector(
+        ".subjects-placeholder"
+    )?.replaceWith(subjects);
+
+    const tr = createTR(app);
+
+    root.querySelector(
+        ".tr-placeholder"
+    )?.replaceWith(tr);
+
+    const bottom = createBottom(app);
+
+    root.querySelector(
+        ".bottom-placeholder"
+    )?.replaceWith(bottom);
 
     // =========================
     // CALENDAR INIT (ВАЖНО!)
