@@ -4,6 +4,7 @@ import { getVaultImage } from "../utils/image";
 import { createFocus } from "../components/focus";
 import { createHero } from "../components/hero";
 import { createQuickActions } from "../components/quickActions";
+import { createSchedule } from "../components/schedule";
 
 export function createHomepage(app: App) {
 
@@ -14,11 +15,6 @@ export function createHomepage(app: App) {
         app,
         "040 Projects/starlit-archive-project/assets/project.png"
     );
-
-    const girlImage = getVaultImage(
-    app,
-    "040 Projects/starlit-archive-project/assets/girl.png"
-);
 
     const illustrationImage = getVaultImage(
     app,
@@ -34,7 +30,7 @@ export function createHomepage(app: App) {
         
         <div class="deadlines-block"></div>
         <div class="illustration-block"></div>
-        <div class="schedule-block">SCHEDULE</div>
+        <div class="schedule-placeholder"></div>
 
         <div class="project-block">
             <div class="project-overlay"></div>
@@ -63,16 +59,18 @@ export function createHomepage(app: App) {
         createFocus(app)
     );
 
+    const schedule = createSchedule(app);
+
+    const schedulePlaceholder = root.querySelector(
+        ".schedule-placeholder"
+    );
+
+    schedulePlaceholder?.replaceWith(schedule);
+
     const project = root.querySelector(".project-block") as HTMLElement;
     if (projectImage) {
         project.style.setProperty("--project-image", `url("${projectImage}")`);
     }
-
-    const schedule = root.querySelector(".schedule-block") as HTMLElement;
-
-if (girlImage) {
-    schedule.style.setProperty("--girl-image", `url("${girlImage}")`);
-}
     
     const illustration = root.querySelector(".illustration-block") as HTMLElement;
 
