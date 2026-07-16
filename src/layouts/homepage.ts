@@ -2,36 +2,17 @@ import { App } from "obsidian";
 import { renderCalendar } from "../modules/calendar";
 import { getVaultImage } from "../utils/image";
 import { createFocus } from "../components/focus";
+import { createHero } from "../components/hero";
 
 export function createHomepage(app: App) {
 
     const root = document.createElement("div");
     root.classList.add("starlit-homepage");
 
-    const heroImage = getVaultImage(
-        app,
-        "040 Projects/starlit-archive-project/assets/banner.png"
-    );
-
     const projectImage = getVaultImage(
         app,
         "040 Projects/starlit-archive-project/assets/project.png"
     );
-
-    const archiveText = getVaultImage(
-        app,
-        "040 Projects/starlit-archive-project/assets/text/starlit-archive.png"
-    );
-
-    const semesterText = getVaultImage(
-        app,
-        "040 Projects/starlit-archive-project/assets/text/summer-semester.png"
-    );
-
-    const startQuote = getVaultImage(
-    app,
-    "040 Projects/starlit-archive-project/assets/text/start-quote.png"
-);
 
     const girlImage = getVaultImage(
     app,
@@ -49,23 +30,6 @@ export function createHomepage(app: App) {
 );
 
     root.innerHTML = `
-        <div class="hero-banner">
-            <div class="hero-content">
-
-                <div class="hero-text-stack">
-                    <div class="archive-title"></div>
-                    <div class="semester-title"></div>
-                    <div class="semester-divider"></div>
-                    <div class="start-quote"></div>
-                </div>
-
-            </div>
-
-            <div class="calendar-widget">
-                CALENDAR
-            </div>
-        </div>
-
         <div class="quick-actions" data-quick-buttons="true"></div>
         
         <div class="deadlines-block"></div>
@@ -87,6 +51,10 @@ export function createHomepage(app: App) {
         <div class="bottom-block">BOTTOM</div>
     `;
 
+    const hero = createHero(app);
+
+    root.prepend(hero);
+
     const quickActions = root.querySelector(
         ".quick-actions"
     );
@@ -98,35 +66,6 @@ export function createHomepage(app: App) {
         );
 
     }
-
-    // =========================
-    // HERO IMAGES
-    // =========================
-
-    const hero = root.querySelector(".hero-banner") as HTMLElement;
-
-    if (heroImage) {
-        hero.style.setProperty("--hero-image", `url("${heroImage}")`);
-    }
-
-    const archiveTitle = root.querySelector(".archive-title") as HTMLElement;
-    if (archiveText) {
-        archiveTitle.style.setProperty("--archive-title", `url("${archiveText}")`);
-    }
-
-    const semesterTitle = root.querySelector(".semester-title") as HTMLElement;
-    if (semesterText) {
-        semesterTitle.style.setProperty("--semester-title", `url("${semesterText}")`);
-    }
-
-    const startQuoteEl = root.querySelector(".start-quote") as HTMLElement;
-
-if (startQuote) {
-    startQuoteEl.style.setProperty(
-        "--start-quote",
-        `url("${startQuote}")`
-    );
-}
 
     const project = root.querySelector(".project-block") as HTMLElement;
     if (projectImage) {
@@ -161,7 +100,9 @@ if (deadlinesImage) {
     // CALENDAR INIT (ВАЖНО!)
     // =========================
 
-    const calendarContainer = root.querySelector(".calendar-widget") as HTMLElement;
+    const calendarContainer = hero.querySelector(
+        ".calendar-widget"
+    ) as HTMLElement;
 
     if (calendarContainer) {
         renderCalendar(app, calendarContainer);
