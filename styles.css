@@ -43,6 +43,58 @@ body.starlit-theme {
     --tab-background-active: #2d1d4d;
 }
 
+@font-face {
+    font-family: "Starlit UI";
+    src: url("src/assets/fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Starlit UI";
+    src: url("src/assets/fonts/NotoSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Starlit Display";
+    src: url("src/assets/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Starlit Display";
+    src: url("src/assets/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Starlit Accent";
+    src: url("src/assets/fonts/CormorantGaramond-VariableFont_wght.ttf") format("truetype");
+    font-weight: 300 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Starlit Accent";
+    src: url("src/assets/fonts/CormorantGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 300 700;
+    font-style: italic;
+}
+
+:root {
+
+    --font-ui: "Starlit UI", sans-serif;
+
+    --font-display: "Starlit Display", serif;
+
+    --font-accent: "Starlit Accent", serif;
+
+}
+
 /* =========================================================
    APP BACKGROUND
 ========================================================= */
@@ -1246,6 +1298,7 @@ body.starlit-theme .markdown-reading-view {
 .focus-header {
     grid-column: 1 / -1;
     font-size: 24px;
+    font-family: var(--font-display);
     color: white;
 }
 
@@ -1333,6 +1386,7 @@ body.starlit-theme .markdown-reading-view {
 
     font-size: 24px;
     font-weight: 600;
+    font-family: var(--font-accent);
 
     color: #382d72;
 
