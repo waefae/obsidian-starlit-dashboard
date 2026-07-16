@@ -1,0 +1,10 @@
+{
+  "id": "starlit-dashboard",
+  "name": "Starlit Dashboard",
+  "version": "0.0.1",
+  "minAppVersion": "1.5.0",
+  "description": "my homepage dashboard lol",
+  "author": "waefae",
+  "authorUrl": "https://github.com/waefae",
+  "isDesktopOnly": false
+}

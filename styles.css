@@ -1,0 +1,1672 @@
+/* =========================================================
+   STARLIT DASHBOARD — THEME TOKENS
+========================================================= */
+
+body.starlit-theme {
+
+    --bg: #140f24;
+    --bg-secondary: #1b1431;
+
+    --panel: #24173f;
+    --panel-2: #312056;
+
+    --surface: #f4e9e2;
+    --surface-2: #ead9d3;
+
+    --text: #f6ecff;
+    --text-muted: #cab7de;
+
+    --accent: #f0a8d8;
+    --accent-soft: #f6c7e5;
+    --accent-muted: #dba4c8;
+    --accent-glow: rgba(240,168,216,0.32);
+
+    --divider: rgba(255,255,255,0.06);
+
+    --background-primary: var(--bg);
+    --background-primary-alt: var(--bg-secondary);
+
+    --background-secondary: var(--panel);
+    --background-secondary-alt: var(--panel-2);
+
+    --background-modifier-border: var(--divider);
+    --background-modifier-hover: rgba(255,255,255,0.05);
+
+    --interactive-accent: var(--accent);
+
+    --text-normal: var(--text);
+    --text-muted: var(--text-muted);
+
+    --titlebar-background: var(--panel);
+    --titlebar-background-focused: var(--panel-2);
+
+    --tab-background-active: #2d1d4d;
+}
+
+/* =========================================================
+   APP BACKGROUND
+========================================================= */
+
+body.starlit-theme,
+body.starlit-theme .app-container {
+    background:
+        radial-gradient(circle at top, rgba(150,110,255,0.16), transparent 32%),
+        linear-gradient(180deg, #24153f 0%, #140f24 100%) !important;
+}
+
+/* =========================================================
+   OBSIDIAN UI RESET
+========================================================= */
+
+body.starlit-theme :is(
+    .workspace,
+    .workspace-split,
+    .workspace-tabs,
+    .workspace-tab-container,
+    .workspace-tab-container-inner,
+    .workspace-leaf,
+    .workspace-leaf-content,
+    .view-content,
+    .view-header,
+    .mod-root,
+    .mod-sidedock,
+    .mod-left-split,
+    .mod-right-split
+) {
+    background: transparent !important;
+}
+
+/* =========================================================
+   SIDEBARS
+========================================================= */
+
+body.starlit-theme .workspace-ribbon,
+body.starlit-theme .mod-left-split {
+    background: linear-gradient(180deg, #2b1b4d 0%, #140f24 100%) !important;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+body.starlit-theme .mod-right-split {
+    background: linear-gradient(180deg, #21153a 0%, #140f24 100%) !important;
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+/* =========================================================
+   TITLEBAR + TABS
+========================================================= */
+
+body.starlit-theme .titlebar {
+    background: linear-gradient(
+        90deg,
+        rgba(36,23,63,0.96),
+        rgba(20,15,36,0.96)
+    );
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+body.starlit-theme .workspace-tab-header-container {
+    background: linear-gradient(
+        180deg,
+        rgba(46,30,76,0.96),
+        rgba(26,18,44,0.96)
+    ) !important;
+
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+body.starlit-theme .workspace-tab-header.is-active {
+    background: rgba(255,255,255,0.04) !important;
+    border-radius: 14px 14px 0 0;
+}
+
+/* =========================================================
+   STATUS BAR
+========================================================= */
+
+body.starlit-theme .status-bar {
+    background: linear-gradient(
+        90deg,
+        rgba(31,18,54,0.96),
+        rgba(20,15,36,0.96)
+    ) !important;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #dbcdf0;
+}
+
+/* =========================================================
+   ICON SYSTEM
+========================================================= */
+
+body.starlit-theme :is(
+    .clickable-icon,
+    .side-dock-ribbon-action,
+    .workspace-tab-header-status-icon
+) {
+    color: var(--accent-soft) !important;
+    border-radius: 10px;
+}
+
+body.starlit-theme :is(
+    .clickable-icon:hover,
+    .side-dock-ribbon-action:hover
+) {
+    background: rgba(240,168,216,0.10) !important;
+
+    box-shadow:
+        0 0 12px rgba(240,168,216,0.10);
+
+    color: white !important;
+}
+
+/* ACTIVE TAB */
+
+body.starlit-theme .workspace-tab-header.is-active {
+
+    color: #f0a8d8 !important;
+}
+
+/* ACTIVE TAB ICON */
+
+body.starlit-theme .workspace-tab-header.is-active .svg-icon {
+
+    color: #f0a8d8 !important;
+}
+
+/* RIBBON ACTIVE ICON */
+
+body.starlit-theme .workspace-ribbon .side-dock-ribbon-action.is-active {
+
+    color: #f0a8d8 !important;
+}
+
+/* HOVER */
+
+body.starlit-theme .workspace-ribbon .side-dock-ribbon-action:hover {
+
+    color: #ffc6ea !important;
+}
+
+/* TOP RIGHT ICONS */
+
+body.starlit-theme :is(
+    .workspace-tab-header-inner-icon,
+    .workspace-tab-header-status-icon,
+    .titlebar-button,
+    .clickable-icon
+) {
+
+    color: #f0a8d8 !important;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* HOVER */
+
+body.starlit-theme :is(
+    .workspace-tab-header-inner-icon,
+    .workspace-tab-header-status-icon,
+    .titlebar-button,
+    .clickable-icon
+):hover {
+
+    color: #ffd6ef !important;
+
+    background: rgba(240,168,216,0.10) !important;
+
+    box-shadow:
+        0 0 12px rgba(240,168,216,0.14);
+
+    border-radius: 10px;
+}
+
+/* =========================================================
+   MINI TIMELINE
+========================================================= */
+
+body.starlit-theme .status-bar-item-segment.mini-timeline {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(240,168,216,0.16),
+            rgba(210,150,255,0.10)
+        ) !important;
+
+    border: 1px solid rgba(240,168,216,0.16) !important;
+
+    color: #ffe3f3 !important;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 0 12px rgba(240,168,216,0.10),
+        inset 0 0 12px rgba(255,255,255,0.04);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
+}
+
+/* hover */
+
+body.starlit-theme .status-bar-item-segment.mini-timeline:hover {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,190,235,0.22),
+            rgba(220,170,255,0.16)
+        ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 0 18px rgba(240,168,216,0.16),
+        0 0 30px rgba(220,170,255,0.10);
+}
+
+/* текст внутри */
+
+body.starlit-theme .status-bar-item-segment.mini-timeline * {
+
+    color: inherit !important;
+}
+
+/* =========================================================
+   MINI TIMELINE MARKERS
+========================================================= */
+
+body.starlit-theme .time-marker.top,
+body.starlit-theme .time-marker.bottom {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(240,168,216,0.22),
+            rgba(210,150,255,0.14)
+        ) !important;
+
+    border: 1px solid rgba(255,190,230,0.18) !important;
+
+    color: #ffe7f6 !important;
+
+    box-shadow:
+        0 0 10px rgba(240,168,216,0.12),
+        inset 0 0 10px rgba(255,255,255,0.04);
+
+    border-radius: 10px;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* hover */
+
+body.starlit-theme .time-marker.top:hover,
+body.starlit-theme .time-marker.bottom:hover {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,205,238,0.26),
+            rgba(225,180,255,0.18)
+        ) !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 0 16px rgba(240,168,216,0.18);
+}
+
+/* текст / иконки внутри */
+
+body.starlit-theme .time-marker.top *,
+body.starlit-theme .time-marker.bottom * {
+
+    color: inherit !important;
+}
+
+/* =========================================================
+   DIVIDERS + SCROLLBAR
+========================================================= */
+
+body.starlit-theme :is(
+    hr,
+    .workspace-divider,
+    .workspace-leaf-resize-handle
+) {
+    border-color: rgba(255,255,255,0.05) !important;
+}
+
+body.starlit-theme ::-webkit-scrollbar {
+    width: 10px;
+}
+
+body.starlit-theme ::-webkit-scrollbar-thumb {
+    background: rgba(180,140,255,0.22);
+    border-radius: 999px;
+}
+
+body.starlit-theme .view-content {
+    padding-top: 0 !important;
+}
+
+body.starlit-theme .markdown-reading-view {
+    padding-top: 0 !important;
+}
+
+/* =========================================================
+   HOMEPAGE GRID LAYOUT
+========================================================= */
+
+.starlit-homepage {
+
+    display: grid;
+    position: relative;
+    isolation: isolate;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    grid-auto-rows: minmax(120px, auto);
+
+    gap: 24px;
+    padding: 32px;
+
+    background:
+
+        radial-gradient(
+            circle at top center,
+            rgba(215, 185, 255, 0.45) 0%,
+            rgba(255, 235, 245, 0.18) 28%,
+            transparent 52%
+        ),
+
+        linear-gradient(
+            180deg,
+            #d8c9eb 0%,
+            #eee1dd 24%,
+            #f6ece6 58%,
+            #fff8f5 100%
+        );
+
+    border-radius: 36px;
+
+    min-height: 100vh;
+}
+
+/* =========================================================
+   WIDGET CARD BASE
+========================================================= */
+
+.starlit-homepage > * {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(20,10,40,0.08);
+}
+
+/* =========================================================
+   PLACEHOLDER VISUAL BLOCKS
+========================================================= */
+
+.hero-banner {
+
+    grid-column: 1 / -1;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 36px;
+
+    min-height: 420px;
+
+    color: white;
+
+     background:
+        linear-gradient(
+            rgba(20,15,36,0.35),
+            rgba(20,15,36,0.60)
+        ),
+        var(--hero-image);
+
+    background-size: cover;
+    background-position: center;
+
+    margin-bottom: 0;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content {
+
+    position: relative;
+    z-index: 3;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    padding-top: 30px;
+}
+
+.hero-text-stack {
+
+    display: inline-flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    width: fit-content;
+
+    gap: 0;
+
+    margin-left: 82px;
+    margin-top: -4px;
+}
+
+.archive-title {
+
+    width: 980px;
+    height: 180px;
+
+    background-image: var(--archive-title);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    filter:
+        drop-shadow(0 0 34px rgba(255,220,255,0.28));
+}
+
+.semester-title {
+
+    width: 760px;
+    height: 190px;
+
+    position: relative;
+
+    left: -10px;
+    top: -130px;
+
+    margin-bottom: -145px;
+
+    background-image: var(--semester-title);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    opacity: 0.98;
+
+    filter:
+        drop-shadow(0 0 24px rgba(255,190,240,0.22));
+}
+
+.semester-divider {
+
+    width: 320px;
+    height: 18px;
+
+    top: -50px;
+    left: -40px;
+
+    position: relative;
+
+    margin-top: 2px;
+    margin-bottom: 12px;
+
+    margin-left: 10px;
+}
+
+.semester-divider::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 42px;
+    right: 42px;
+
+    top: 50%;
+
+    height: 1px;
+
+    transform: translateY(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,230,150,0),
+            rgba(255,232,170,0.95),
+            rgba(255,230,150,0)
+        );
+
+    box-shadow:
+        0 0 8px rgba(255,220,140,0.55),
+        0 0 18px rgba(255,220,140,0.28);
+}
+
+.semester-divider::after {
+
+    content: "✦   ·    ✧    ·   ✦";
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ffe9b5;
+
+    font-size: 13px;
+
+    text-shadow:
+        0 0 10px rgba(255,225,160,0.75),
+        0 0 22px rgba(255,225,160,0.35);
+}
+
+.start-quote {
+    width: 420px;
+    height: 120px;
+
+    bottom: 150px;
+
+    background-image: var(--start-quote);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    opacity: 0.95;
+
+    filter:
+        drop-shadow(0 0 18px rgba(255, 230, 170, 0.18))
+        drop-shadow(0 0 30px rgba(255, 210, 140, 0.12));
+
+    transform-origin: left top;
+}
+
+/* =========================================================
+   CALENDAR WIDGET (NEW ARCHITECTURE)
+========================================================= */
+
+/* HOST (glass container in hero) */
+.calendar-widget {
+
+    position: absolute;
+    top: auto;
+    bottom: 20px;
+    right: 24px;
+
+    width: 230px;
+    max-width: 300px;
+
+    padding: 14px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+/* INNER CARD (logic container, NOT visual frame) */
+.calendar-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-header-left {
+    position: relative;
+    padding: 6px 10px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.calendar-title {
+    position: relative;
+    z-index: 2;
+
+    font-weight: 700;
+    font-size: 1em;
+
+    color: #ffe6f2;
+
+    text-shadow:
+        0 0 6px rgba(255, 150, 210, 0.35),
+        0 0 14px rgba(255, 100, 180, 0.25),
+        0 0 26px rgba(170, 120, 255, 0.15);
+}
+
+.calendar-header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calendar-load-inline {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;       /* ключевая штука */
+    max-width: 100%;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 0.65em;
+    font-weight: 500;
+    white-space: nowrap;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: rgba(220, 210, 235, 0.8);
+
+    box-shadow:
+        inset 0 0 10px rgba(255, 255, 255, 0.04);
+
+    margin-left: auto; /* гарантирует прижим вправо */
+}
+
+/* =========================================================
+   WEEKDAYS
+========================================================= */
+
+.calendar-weekdays {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+
+    margin-bottom: 2px;
+}
+
+.calendar-weekdays div {
+  font-size: 0.6em;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.calendar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: space-between;
+    overflow: visible;
+    z-index: 3;
+}
+
+/* =========================================================
+   DAY CELL
+========================================================= */
+
+.calendar-day {
+  height: 25px;
+  flex: 0 0 calc((100% - 24px) / 7);
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.75em;
+
+  color: rgba(255,255,255,0.75);
+
+  background: rgba(255,255,255,0.06);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  position: relative;
+
+  transition: 0.2s ease;
+
+  pointer-events: auto;
+
+  z-index: 2;
+}
+
+/* hover */
+.calendar-day:hover {
+    animation: dayGlow 0.89s ease-in-out infinite;
+}
+
+@keyframes dayGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(255, 160, 200, 0.0);
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(255, 160, 200, 0.35);
+    }
+}
+
+/* =========================================================
+   HEAT LEVELS
+========================================================= */
+
+.calendar-day.lvl-1 {
+    background: rgba(255, 210, 235, 0.10);
+    border: 1px solid rgba(255, 180, 220, 0.18);
+
+    box-shadow:
+        inset 0 0 10px rgba(255, 180, 220, 0.08);
+}
+
+.calendar-day.lvl-2 {
+    background: rgba(255, 160, 210, 0.18);
+    border: 1px solid rgba(255, 140, 200, 0.25);
+
+    box-shadow:
+        0 0 10px rgba(255, 120, 180, 0.12),
+        inset 0 0 14px rgba(255, 140, 200, 0.10);
+}
+
+.calendar-day.lvl-3 {
+    background: rgba(255, 90, 140, 0.30);
+    border: 1px solid rgba(255, 80, 130, 0.45);
+
+    color: white;
+
+    box-shadow:
+        0 0 16px rgba(255, 70, 120, 0.25),
+        0 0 30px rgba(255, 60, 110, 0.15),
+        inset 0 0 18px rgba(255, 120, 160, 0.12);
+}
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.calendar-day.today-heart {
+  background: rgba(255, 120, 160, 0.25) !important;
+  border: 1px solid rgba(255, 160, 200, 0.4);
+  color: white;
+  font-weight: 600;
+
+  box-shadow: 0 0 14px rgba(255, 120, 160, 0.35);
+}
+
+.calendar-day.overdue {
+    opacity: 0.5;
+}
+
+/* deadline glow */
+.calendar-day.deadline {
+    box-shadow: 0 0 10px rgba(244,140,168,0.6);
+}
+
+/* event outline */
+.calendar-day.event {
+    outline: 2px solid #DCEEEE;
+}
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.calendar-dots {
+    position: absolute;
+    bottom: 3px;
+
+    display: flex;
+    gap: 2px;
+}
+
+.calendar-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+
+/* =========================================================
+   LEGEND
+========================================================= */
+
+.calendar-legend {
+    margin-top: 4px;
+
+    font-size: 0.6em;
+    color: #999;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.project-block {
+
+    grid-column: 2 / -2;
+    min-height: 250px;
+    padding: 28px;
+
+    position: relative;
+
+
+    background:
+        linear-gradient(
+            rgba(20,15,36,0.10),
+            rgba(20,15,36,0.25)
+        ),
+        var(--project-image);
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.quick-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin-top: 0;
+
+    gap: 16px;
+
+    padding: 8px 14px;
+
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+
+    position: relative;
+}
+
+.quick-actions [data-quick-buttons="true"] {
+    margin-right: auto !important;
+    display: flex;
+    align-items: center;
+}
+
+.quick-bunny {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+
+    width: 128px;
+    height: 128px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* SVG */
+.quick-bunny svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ===== ТЕНЬ (как в твоём SVG — плоская) ===== */
+
+.bunny-shadow {
+    transition: transform 0.38s ease, opacity 0.38s ease;
+    transform-origin: center;
+}
+
+/* при прыжке тень просто уменьшается */
+.quick-bunny.jump .bunny-shadow {
+    transform: scale(0.65);
+    opacity: 0.35;
+}
+
+/* ===== ПРЫЖОК ===== */
+
+.quick-bunny.jump {
+    animation: bunny-jump 0.38s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@keyframes bunny-jump {
+    0% {
+        transform: translateY(-50%) scale(1);
+    }
+
+    45% {
+        transform: translateY(calc(-50% - 18px)) scale(1.08);
+    }
+
+    70% {
+        transform: translateY(calc(-50% - 6px)) scale(0.98);
+    }
+
+    100% {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+.schedule-block {
+
+    grid-column: span 4;
+
+    min-height: 480px;
+
+    padding: 28px;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+    background: linear-gradient(180deg, #f6ece6, #f0dfd8);
+}
+
+/* КАРТИНКА */
+
+.schedule-block::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: var(--girl-image);
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    /*
+       ТУТ ДВИГАЕМ
+    */
+
+    background-position: right -60px bottom -20px;
+
+    opacity: 0.95;
+
+    pointer-events: none;
+}
+
+.deadlines-block {
+
+    grid-column: span 5;
+
+    overflow: visible !important;
+
+    padding-right: 16px !important;
+    padding-left: 24px;
+
+    min-height: 480px;
+
+    position: relative;
+
+    border-radius: 32px;
+
+    /* БОЛЕЕ МАТЕРИАЛЬНАЯ ПОВЕРХНОСТЬ */
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,0.65),
+            rgba(245,235,228,0.35) 50%,
+            rgba(225,210,200,0.12) 100%
+        );
+
+    border: 1px solid rgba(255,255,255,0.40);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.9),
+        inset 0 -40px 80px rgba(120,90,80,0.06),
+        0 25px 60px rgba(60,30,80,0.08);
+
+    isolation: isolate;
+}
+
+.deadlines-block::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 260px;
+
+    left: 48%;
+    top: 54%;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(120,80,60,0.22) 0%,
+            rgba(120,80,60,0.10) 45%,
+            transparent 80%
+        );
+
+    filter: blur(40px);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.deadlines-block::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 128%;
+    height: 128%;
+
+    left: 46%;
+    top: 46%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-1.4deg);
+
+    background-image: var(--deadlines-image);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    opacity: 0.98;
+
+    filter:
+        drop-shadow(
+            0 24px 38px rgba(70,40,90,0.12)
+        )
+        drop-shadow(
+            0 8px 16px rgba(70,40,90,0.08)
+        );
+}
+
+.focus-block {
+
+    grid-column: 3 / -3;
+
+    --corner-offset: 6px;
+
+    min-height: 260px;
+    height: 260px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.55),
+            rgba(255,255,255,0.35)
+        );
+
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.focus-block::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: var(--focus-image);
+
+    background-repeat: no-repeat;
+
+    background-size: 102%;
+
+    /*
+       двигать картинку тут
+    */
+    background-position: center -80px;
+
+    opacity: 1;
+
+    pointer-events: none;
+}
+
+.focus-corner {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    background-image: var(--focus-border-image);
+    background-repeat: no-repeat;
+    background-size: 110%;
+
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.focus-corner.tl {
+    top: var(--corner-offset);
+    left: var(--corner-offset);
+}
+
+.focus-corner.tr {
+    top: var(--corner-offset);
+    right: var(--corner-offset);
+    transform: scaleX(-1);
+}
+
+.focus-corner.bl {
+    bottom: var(--corner-offset);
+    left: var(--corner-offset);
+    transform: scaleY(-1);
+}
+
+.focus-corner.br {
+    bottom: var(--corner-offset);
+    right: var(--corner-offset);
+    transform: scale(-1);
+}
+
+.focus-layout {
+    display: grid;
+
+    height: 100%;
+
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 40px;
+
+    padding: 32px;
+
+    box-sizing: border-box;
+}
+
+.focus-header {
+    grid-column: 1 / -1;
+    font-size: 24px;
+    color: white;
+}
+
+.focus-select {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    width: 180px;
+    height: 86px;
+
+    background-image: var(--focus-select-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    cursor: pointer;
+    z-index: 60;
+
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease,
+        opacity 0.22s ease;
+}
+
+.focus-select:hover {
+    transform: translateY(-2px);
+
+    filter:
+        drop-shadow(0 0 10px rgba(255,220,255,0.7))
+        drop-shadow(0 0 20px rgba(255,180,255,0.45));
+}
+
+.focus-select:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.focus-badge {
+    position: absolute;
+
+    left: 38px;
+    top: 42px;
+
+    width: 570px;
+    height: 162px;
+
+    background-image: var(--focus-badge-image);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    z-index: 5;
+}
+
+.course-grid {
+
+    width: 500px;
+    height: 100%;
+
+    margin-left: 118px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr;
+
+    padding:
+
+        26px
+        70px
+        24px
+        40px;
+
+    box-sizing: border-box;
+}
+
+.course-title {
+
+    grid-column: 1;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    color: #382d72;
+
+    align-self: end;
+}
+
+.course-counter {
+
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    align-self: center;
+
+    font-size: 34px;
+    font-weight: 500;
+
+    color: #df73bf;
+}
+
+.course-subtitle {
+
+    grid-column: 1;
+
+    font-size: 20px;
+
+    color: #b650a0;
+}
+
+.course-progress {
+
+    grid-column: 1 / span 2;
+
+    align-self: end;
+
+    margin-bottom: 8px;
+    margin-left: 28px;
+    margin-right: 90px;
+
+    height: 10px;
+
+    border-radius: 999px;
+
+    background: rgba(90, 70, 180, 0.15);
+
+    overflow: hidden;
+}
+
+.course-progress-fill {
+
+    width: 40%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #ff80b5,
+        #8f6dff
+    );
+}
+
+.focus-tasks {
+    position: absolute;
+
+    right: 40px;
+    top: 70px;
+
+    width: 260px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+}
+
+.task-dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ffd1e8,
+        #ff6fae
+    );
+
+    box-shadow:
+        0 0 6px rgba(255, 120, 180, 0.45);
+
+    flex-shrink: 0;
+}
+
+.task.completed {
+    opacity: 0.55;
+    text-decoration: line-through;
+}
+
+.task.completed .task-dot {
+    background: radial-gradient(
+        circle at 30% 30%,
+        #ffffff,
+        #d8b4ff
+    );
+
+    box-shadow:
+        0 0 8px rgba(200, 170, 255, 0.5);
+
+    animation: completePop 0.25s ease-out;
+}
+
+@keyframes completePop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.illustration-block {
+
+    box-shadow: none !important;
+    border: none !important;
+
+    grid-column: span 3;
+
+    min-height: 420px;
+
+    position: relative;
+
+    overflow: visible !important;
+
+    /*
+       Очень мягкий теплый градиент
+       чуть темнее основного фона
+    */
+
+    background:
+
+    radial-gradient(
+        circle at center 38%,
+
+        rgba(228, 205, 190, 0.78) 0%,
+
+        rgba(236, 218, 206, 0.52) 26%,
+
+        rgba(245, 234, 226, 0.24) 52%,
+
+        rgba(255, 248, 244, 0.08) 74%,
+
+        rgba(255,255,255,0) 100%
+    );
+
+    backdrop-filter: blur(1px);
+
+    border-radius: 42px;
+
+    isolation: isolate;
+}
+
+/* САМА ИЛЛЮСТРАЦИЯ */
+
+.illustration-block::after {
+
+    content: "";
+
+    position: absolute;
+    overflow: visible;
+
+    inset: 0;
+
+    background-image: var(--illustration-image);
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+    /*
+       ПОДВИГАТЬ МОЖНО ТУТ
+    */
+
+    background-position: center top;
+
+    opacity: 0.98;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    filter:
+    drop-shadow(0 8px 22px rgba(255, 210, 170, 0.16));
+}
+
+/*
+   Очень мягкое затемнение снизу,
+   чтобы картинка лучше вписывалась
+*/
+
+.illustration-block::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0) 40%,
+            rgba(255,220,190,0.025) 100%
+        ),
+
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0) 60%,
+            rgba(190,150,120,0.03) 100%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.subjects-block {
+    grid-column: span 7;
+}
+
+.tr-block {
+    display: grid;
+    justify-content: space-between;
+    align-items: stretch;
+    grid-column: span 5;
+    min-height: 420px;
+    padding: 28px;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.tasks-block {
+    grid-row: span 2;
+}
+
+.recent-notes {
+    grid-row: span 2;
+}
+
+.bottom-block {
+    grid-column: span 12;
+
+    min-height: 260px;
+    padding: 28px;
+    color: white;
+    background: linear-gradient(180deg, #201338, #140f24);
+}
+
+/* =========================================================
+   DASHBOARD WRAPPER (MOVED FROM MAIN.TS)
+========================================================= */
+
+.starlit-mounted {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+}
+
+/* =========================================================
+   STAR FIELD
+========================================================= */
+
+.starlit-homepage::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.75;
+
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+
+    background-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">\
+\
+<g stroke="%23f0b7ff" stroke-opacity="0.18" stroke-width="1">\
+<line x1="220" y1="980" x2="320" y2="910"/>\
+<line x1="320" y1="910" x2="420" y2="950"/>\
+<line x1="980" y1="820" x2="1080" y2="760"/>\
+<line x1="1080" y1="760" x2="1180" y2="840"/>\
+</g>\
+\
+<g fill="%23fff0ff">\
+<circle cx="220" cy="980" r="3"/>\
+<circle cx="320" cy="910" r="2"/>\
+<circle cx="420" cy="950" r="3"/>\
+<circle cx="980" cy="820" r="3"/>\
+<circle cx="1080" cy="760" r="2"/>\
+<circle cx="1180" cy="840" r="3"/>\
+</g>\
+\
+<g fill="%23f7d8ff" fill-opacity="0.48">\
+<circle cx="120" cy="1120" r="1.2"/>\
+<circle cx="260" cy="1080" r="1"/>\
+<circle cx="420" cy="1150" r="1.2"/>\
+<circle cx="620" cy="1040" r="1"/>\
+<circle cx="860" cy="1120" r="1.2"/>\
+<circle cx="1040" cy="1080" r="1"/>\
+<circle cx="1280" cy="1140" r="1.2"/>\
+<circle cx="1460" cy="1040" r="1"/>\
+\
+<circle cx="340" cy="720" r="0.8"/>\
+<circle cx="880" cy="620" r="0.8"/>\
+<circle cx="1160" cy="520" r="0.8"/>\
+<circle cx="760" cy="340" r="0.7"/>\
+</g>\
+\
+</svg>');
+}
+
+.starlit-homepage > * {
+    position: relative;
+    z-index: 1;
+}
