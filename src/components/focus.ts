@@ -1,5 +1,6 @@
 import { App } from "obsidian";
 import { getVaultImage } from "../utils/image";
+import { createProgressBar } from "./progressBar";
 import { ASSET_PATH } from "../constants";
 
 export function createFocus(app: App): HTMLElement {
@@ -28,6 +29,11 @@ export function createFocus(app: App): HTMLElement {
         `${ASSET_PATH}/focus/badge.png`
     );
 
+    const sparkleImage = getVaultImage(
+        app,
+        `${ASSET_PATH}/svg/focus/sparkle.svg`
+    );
+    
     focus.innerHTML = `
 
         <div class="focus-corner tl"></div>
@@ -35,51 +41,69 @@ export function createFocus(app: App): HTMLElement {
         <div class="focus-corner bl"></div>
         <div class="focus-corner br"></div>
 
-        <div class="focus-layout">
+        <div class="focus-header">
 
-            <div class="focus-header">
-                FOCUS
-            </div>
+            <span class="focus-star"></span>
+
+            <span>FOCUS</span>
+
+            <span class="focus-star"></span>
+
+        </div>
+
+        <div class="focus-layout">
 
             <div class="focus-badge">
 
                 <div class="course-grid">
 
-                    <div class="course-title">
-                        Quantum Mechanics
+                    <div class="course-info">
+
+                        <div class="course-title">
+                            Quantum Mechanics
+                        </div>
+
+                        <div class="course-subtitle">
+                            Lecture 7
+                        </div>
+
                     </div>
 
-                    <div class="course-counter">
-                        2 / 5
+                    <div class="course-right">
+
+                        <div class="course-counter">
+                            2 / 5
+                        </div>
+
                     </div>
 
-                    <div class="course-subtitle">
-                        Lecture 7
-                    </div>
-
-                </div>
-
-                <div class="course-progress">
-                    <div class="course-progress-fill"></div>
                 </div>
 
             </div>
+
+            <div class="focus-divider"></div>
 
             <div class="focus-tasks">
 
                 <div class="task">
                     <span class="task-dot"></span>
-                    Write essay
+                    <span class="task-text">
+                        Write essay
+                    </span>
                 </div>
 
                 <div class="task completed">
                     <span class="task-dot"></span>
-                    Read chapter 3
+                    <span class="task-text">
+                        Read chapter 3
+                    </span>
                 </div>
 
                 <div class="task">
                     <span class="task-dot"></span>
-                    Review notes
+                    <span class="task-text">
+                        Review notes
+                    </span>
                 </div>
 
             </div>
@@ -89,6 +113,14 @@ export function createFocus(app: App): HTMLElement {
         <div class="focus-select"></div>
 
     `;
+
+    const badge = focus.querySelector(
+        ".focus-badge"
+    ) as HTMLElement;
+
+    badge.appendChild(
+        createProgressBar(app)
+    );
 
     if (focusImage) {
 
@@ -122,6 +154,15 @@ export function createFocus(app: App): HTMLElement {
         focus.style.setProperty(
             "--focus-badge-image",
             `url("${badgeImage}")`
+        );
+
+    }
+
+    if (sparkleImage) {
+
+        focus.style.setProperty(
+            "--focus-sparkle-image",
+            `url("${sparkleImage}")`
         );
 
     }
