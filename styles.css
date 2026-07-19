@@ -1,6 +1,6 @@
-/* =========================================================
-   STARLIT DASHBOARD — THEME TOKENS
-========================================================= */
+/* #region foundation */
+
+    /* #region theme tokens */
 
 body.starlit-theme {
 
@@ -42,6 +42,20 @@ body.starlit-theme {
 
     --tab-background-active: #2d1d4d;
 }
+
+:root {
+
+    --font-ui: "Starlit UI", sans-serif;
+
+    --font-display: "Starlit Display", serif;
+
+    --font-accent: "Starlit Accent", serif;
+
+}
+
+/* #endregion */
+
+    /* #region fonts */
 
 @font-face {
     font-family: "Starlit UI";
@@ -85,19 +99,13 @@ body.starlit-theme {
     font-style: italic;
 }
 
-:root {
+/* #endregion */
 
-    --font-ui: "Starlit UI", sans-serif;
+/* #endregion */
 
-    --font-display: "Starlit Display", serif;
+/* #region obsidian ui */
 
-    --font-accent: "Starlit Accent", serif;
-
-}
-
-/* =========================================================
-   APP BACKGROUND
-========================================================= */
+    /* #region app background */
 
 body.starlit-theme,
 body.starlit-theme .app-container {
@@ -106,9 +114,9 @@ body.starlit-theme .app-container {
         linear-gradient(180deg, #24153f 0%, #140f24 100%) !important;
 }
 
-/* =========================================================
-   OBSIDIAN UI RESET
-========================================================= */
+/* #endregion */
+
+    /* #region obsidian reset */
 
 body.starlit-theme :is(
     .workspace,
@@ -128,9 +136,9 @@ body.starlit-theme :is(
     background: transparent !important;
 }
 
-/* =========================================================
-   SIDEBARS
-========================================================= */
+/* #endregion */
+
+    /* #region sidebars */
 
 body.starlit-theme .workspace-ribbon,
 body.starlit-theme .mod-left-split {
@@ -143,9 +151,9 @@ body.starlit-theme .mod-right-split {
     border-left: 1px solid rgba(255,255,255,0.05);
 }
 
-/* =========================================================
-   TITLEBAR + TABS
-========================================================= */
+/* #endregion */
+
+    /* #region titlebar & tabs */
 
 body.starlit-theme .titlebar {
     background: linear-gradient(
@@ -172,9 +180,9 @@ body.starlit-theme .workspace-tab-header.is-active {
     border-radius: 14px 14px 0 0;
 }
 
-/* =========================================================
-   STATUS BAR
-========================================================= */
+/* #endregion */
+
+    /* #region status bar */
 
 body.starlit-theme .status-bar {
     background: linear-gradient(
@@ -187,9 +195,9 @@ body.starlit-theme .status-bar {
     color: #dbcdf0;
 }
 
-/* =========================================================
-   ICON SYSTEM
-========================================================= */
+    /* #endregion */
+
+    /* #region icons */
 
 body.starlit-theme :is(
     .clickable-icon,
@@ -275,6 +283,10 @@ body.starlit-theme :is(
 
     border-radius: 10px;
 }
+
+    /* #endregion*/
+
+/* #endregion */
 
 /* =========================================================
    MINI TIMELINE
@@ -660,10 +672,9 @@ body.starlit-theme .markdown-reading-view {
     transform-origin: left top;
 }
 
-/* =========================================================
-   CALENDAR WIDGET (NEW ARCHITECTURE)
-========================================================= */
+/* #region calendar */
 
+    /* #region host */
 /* HOST (glass container in hero) */
 .calendar-widget {
 
@@ -710,9 +721,9 @@ body.starlit-theme .markdown-reading-view {
     gap: 8px;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+    /* #endregion */
+
+    /* #region header */
 
 .calendar-header {
     display: flex;
@@ -774,9 +785,9 @@ body.starlit-theme .markdown-reading-view {
     margin-left: auto; /* гарантирует прижим вправо */
 }
 
-/* =========================================================
-   WEEKDAYS
-========================================================= */
+    /* #endregion */
+
+    /* #region weekdays */
 
 .calendar-weekdays {
     display: flex;
@@ -793,9 +804,9 @@ body.starlit-theme .markdown-reading-view {
   letter-spacing: 0.08em;
 }
 
-/* =========================================================
-   GRID
-========================================================= */
+    /* #endregion */
+
+    /* #region grid */
 
 .calendar-grid {
     display: flex;
@@ -806,9 +817,9 @@ body.starlit-theme .markdown-reading-view {
     z-index: 3;
 }
 
-/* =========================================================
-   DAY CELL
-========================================================= */
+    /* #endregion */
+
+    /* #region day cell */
 
 .calendar-day {
   height: 25px;
@@ -853,9 +864,9 @@ body.starlit-theme .markdown-reading-view {
     }
 }
 
-/* =========================================================
-   HEAT LEVELS
-========================================================= */
+    /* #endregion */
+
+    /* #region heat levels */
 
 .calendar-day.lvl-1 {
     background: rgba(255, 210, 235, 0.10);
@@ -886,9 +897,9 @@ body.starlit-theme .markdown-reading-view {
         inset 0 0 18px rgba(255, 120, 160, 0.12);
 }
 
-/* =========================================================
-   STATES
-========================================================= */
+    /* #endregion */
+
+    /* #region states */
 
 .calendar-day.today-heart {
   background: rgba(255, 120, 160, 0.25) !important;
@@ -913,9 +924,9 @@ body.starlit-theme .markdown-reading-view {
     outline: 2px solid #DCEEEE;
 }
 
-/* =========================================================
-   DOTS
-========================================================= */
+    /* #endregion */
+
+    /* #region dots */
 
 .calendar-dots {
     position: absolute;
@@ -931,9 +942,9 @@ body.starlit-theme .markdown-reading-view {
     border-radius: 50%;
 }
 
-/* =========================================================
-   LEGEND
-========================================================= */
+    /* #endregion */
+
+    /* #region legend */
 
 .calendar-legend {
     margin-top: 4px;
@@ -945,6 +956,10 @@ body.starlit-theme .markdown-reading-view {
     flex-wrap: wrap;
     gap: 6px;
 }
+
+    /* #endregion */
+
+/* #endregion */
 
 .project-block {
 
@@ -1196,6 +1211,10 @@ body.starlit-theme .markdown-reading-view {
         );
 }
 
+/* #region focus */
+
+    /* #region overall */
+
 .focus-block {
 
     grid-column: 3 / -3;
@@ -1243,6 +1262,8 @@ body.starlit-theme .markdown-reading-view {
     pointer-events: none;
 }
 
+    /* #endregion */
+    /* #region corner */
 .focus-corner {
     position: absolute;
 
@@ -1281,21 +1302,21 @@ body.starlit-theme .markdown-reading-view {
     transform: scale(-1);
 }
 
+    /* #endregion */
+
 .focus-layout {
     display: grid;
-    grid-template-columns: 470px 1px 300px;
-
+    grid-template-columns: minmax(0, 470px) 1px minmax(0, 1fr);
     align-items: center;
-
     column-gap: 20px;
-
     height: 100%;
-
     padding: 56px 40px 34px 36px;
-
     position: relative;
     z-index: 10;
+    min-width: 0;
 }
+
+    /* #region header + select */
 
 .focus-header {
     position: absolute;
@@ -1403,6 +1424,8 @@ body.starlit-theme .markdown-reading-view {
     transform: translateY(1px) scale(0.98);
 }
 
+    /* #endregion */
+
 .focus-badge {
     position: relative;
 
@@ -1427,55 +1450,41 @@ body.starlit-theme .markdown-reading-view {
     justify-self: center;
 }
 
+    /* #region course */
+
 .course-grid {
     display: grid;
-
     width: 100%;
-
     margin-left: 104px;
     padding: 20px 30px 10px 22px;
     grid-template-columns: 1fr;
-
     box-sizing: border-box;
-
     align-items: center;
 }
 
 .course-info {
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     gap: 6px;
 }
 
 .course-right {
     position: absolute;
-
     right: 26px;
     top: 50%;
-
     transform: translateY(-50%);
-
     width: 52px;
     height: 72px;
 }
 
 .course-right::before {
     content: "";
-
     position: absolute;
-
     left: 6px;
-
     top: 14px;
     bottom: 14px;
-
     width: 1px;
-
     background: linear-gradient(
         to bottom,
         transparent,
@@ -1486,62 +1495,40 @@ body.starlit-theme .markdown-reading-view {
 }
 
 .course-title {
-
     font-family: var(--font-display);
-
     font-size: 26px;
-
     font-weight: 500;
-
     color: #332d74;
-
     overflow: hidden;
-
     display: -webkit-box;
-
     -webkit-line-clamp: 2;
-
     -webkit-box-orient: vertical;
-
     overflow: hidden;
-
     line-height: 1.12;
 }
 
 .course-counter {
     position: absolute;
-
     top: 50%;
     left: 64%;
-
     transform: translate(-50%, -50%);
-
     font-family: var(--font-display);
-
     font-size: 20px;
-
     font-weight: 500;
-
     color: #df73bf;
-
     white-space: nowrap;
 }
 
 .course-subtitle {
     margin-top: 2px;
-
     font-family: var(--font-display);
     font-size: 16px;
-
     color: #bf59ab;
-
     cursor: pointer;
-
     transition: color .25s ease;
 }
 
 .course-subtitle:hover {
-
     background: linear-gradient(
         90deg,
         #ff9bd2,
@@ -1549,101 +1536,72 @@ body.starlit-theme .markdown-reading-view {
         #7ba8ff,
         #ff9bd2
     );
-
     background-size: 250%;
-
     animation: subtitleFlow 2.2s linear infinite;
-
     -webkit-background-clip: text;
-
     background-clip: text;
-
     color: transparent;
 }
 
 @keyframes subtitleFlow {
-
     from {
-
         background-position: 0%;
     }
-
     to {
-
         background-position: 250%;
     }
 }
 
+        /* #region progress */
+
 .course-progress {
     position: absolute;
-
     left: 96px;
     right: 30px;
-
     bottom: -8px;
 }
 
 .course-progress-track {
     width: calc(100% - 12px);
-
     position: relative;
-
     height: 7px;
-
     border-radius: 999px;
-
     overflow: visible;
-
     background: rgba(116,92,228,.55);
 }
 
 .course-progress-fill {
-
     position: absolute;
-
     inset: 0 auto 0 0;
-
     width: 62%;
-
     border-radius: inherit;
-
     background: linear-gradient(
         90deg,
         #ff8fc5 0%,
         #f06fd5 45%,
         #9a72ff 100%
 );
-
     box-shadow:
         0 0 12px rgba(255,140,210,.45),
         0 0 20px rgba(150,110,255,.25);
 }
 
 .course-progress-milestones {
-
     position: absolute;
-
     inset: 0;
-
     display: flex;
-
     justify-content: space-evenly;
-
     align-items: center;
-
     pointer-events: none;
 }
 
 .course-progress-milestone {
-
     width: 9px;
     height: 9px;
-
     background-image: var(--progress-milestone);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-
     filter:
         drop-shadow(0 0 4px rgba(255,255,255,.7))
         drop-shadow(0 0 10px rgba(255,220,255,.45));
@@ -1654,52 +1612,46 @@ body.starlit-theme .markdown-reading-view {
 }
 
 .course-progress-star {
-
     position: absolute;
-
     left: 62%;
     top: 50%;
-
     width: 30px;
     height: 30px;
-
     transform: translate(-50%, -50%);
-
     background-image: var(--progress-star);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-
     filter:
         drop-shadow(0 0 6px rgba(255,245,215,.95))
         drop-shadow(0 0 18px rgba(255,220,150,.55));
-
     z-index: 10;
 }
 
+        /* #endregion */
+    /* #endregion */
+    /* #region tasks */
 .focus-tasks {
     display: flex;
     flex-direction: column;
     padding-left: 14px;
     justify-content: center;
-
     gap: 24px;
-
     min-width: 0;
     width: 100%;
-
     align-self: center;
+    overflow: hidden;
 }
 
 .task {
     display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    min-width: 0;
+    align-items: flex-start;
     width: 100%;
-
+    max-width: 100%;
+    min-width: 0;
+    gap: 12px;
+    overflow: hidden;
+    box-sizing: border-box;
     font-family: var(--font-display);
     font-size: 14px;
     line-height: 1.45;
@@ -1707,39 +1659,36 @@ body.starlit-theme .markdown-reading-view {
 }
 
 .task-text {
-    flex: 1;
+    flex: 1 1 auto;
     width: 100%;
-    min-width: 0;
     max-width: 100%;
-
+    min-width: 0;
+    display: block;
     white-space: normal;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     word-break: break-word;
     hyphens: auto;
-    display: block;
+    overflow: hidden;
 }
 
 .task-dot {
-
+    cursor: pointer;
     width: 16px;
     height: 16px;
-
+    flex-shrink: 0;
+    margin-top: 2px;
     border-radius: 50%;
-
     border: 2px solid #d7a3da;
-
     background: transparent;
-
     transition:
         border-color .22s ease,
         box-shadow .22s ease,
         background .22s ease;
+    z-index: 60;
 }
 
-.task:hover .task-dot {
-
+.task-dot:hover {
     border-color: #ffd7ef;
-
     box-shadow:
         0 0 10px rgba(255,205,235,.45);
 }
@@ -1750,13 +1699,11 @@ body.starlit-theme .markdown-reading-view {
 }
 
 .task.completed .task-dot {
-
     background: radial-gradient(
         circle,
         #efe7ff,
         #c89cf2
     );
-
     border-color: #e8d4ff;
 }
 
@@ -1765,6 +1712,229 @@ body.starlit-theme .markdown-reading-view {
     50% { transform: scale(1.25); }
     100% { transform: scale(1); }
 }
+
+    /* #endregion */
+/* #endregion */
+
+/* #region focus modal */
+.focus-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(10, 5, 30, 0.65);
+}
+
+.focus-modal {
+    position: relative;
+    width: 700px;
+    height: 760px;
+    border-radius: 32px;
+    overflow: hidden;
+    background-image: var(--focus-modal-image);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow:
+        0 0 40px rgba(220,170,255,0.45),
+        0 0 80px rgba(150,110,255,0.25);
+}
+
+.focus-modal-content {
+    position: relative;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 70px 55px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.focus-modal-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    padding-right: 18px;
+    margin-top: 18px;
+    margin-bottom: 24px;
+}
+
+    /* #region focus modal content */
+
+.focus-modal-header {
+    font-family: var(--font-display);
+    font-size: 26px;
+    padding-left: 4px;
+    color: #fff4ff;
+    margin-top: 0;
+    margin-bottom: 26px;
+    margin-left: 25px;
+
+    text-shadow:
+        0 0 10px rgba(255,220,255,.55);
+}
+
+        /* #region tabs */
+
+.focus-modal-tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 22px;
+    margin-top: 10px;
+}
+
+.focus-tab {
+    width: 170px;
+    height: 54px;
+
+    border-radius: 18px;
+    border: 1px solid rgba(255,220,255,.35);
+
+    background:
+        rgba(80,55,130,.65);
+
+    color: #fff5ff;
+
+    font-family: var(--font-ui);
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.focus-tab:hover {
+    background:
+        rgba(170,110,220,.65);
+}
+
+.focus-tab.active {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,170,220,.8),
+            rgba(150,100,230,.8)
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,190,240,.45);
+}
+
+.focus-tab,
+.focus-confirm {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+        /* #endregion */
+        /* #region task & page rows */
+.focus-task-row,
+.focus-page-row {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    padding: 8px 12px;
+
+    border-radius: 12px;
+
+    color: #fff7ff;
+
+    font-family: var(--font-ui);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.focus-task-row:hover,
+.focus-page-row:hover {
+    background:
+        rgba(255,210,245,.12);
+
+    box-shadow:
+        inset 0 0 12px rgba(255,220,255,.12);
+}
+
+/* checkbox */
+
+.focus-task-row input {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #f0a8d8;
+}
+        /* #endregion */
+        /* #region confirm */
+.focus-confirm {
+    height: 46px;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255,220,255,.35);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(240,168,216,.65),
+            rgba(180,120,255,.65)
+        );
+
+    color: white;
+
+    font-family: var(--font-display);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        .25s ease;
+}
+
+.focus-confirm:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 24px rgba(255,190,240,.45);
+}
+        /* #endregion */
+        /* #region close */
+.focus-modal-close {
+    top: 55px;
+    right: 45px;
+
+    width: 36px;
+    height: 36px;
+
+    background:
+        rgba(90,60,140,.65);
+
+    border:
+        1px solid rgba(255,220,255,.4);
+
+    color:
+        #fff4ff;
+
+    font-size:
+        24px;
+}
+
+.focus-modal-close:hover {
+    background:
+        rgba(255,180,230,.35);
+}
+        /* #endregion */
 
 .illustration-block {
 
@@ -1911,6 +2081,25 @@ body.starlit-theme .markdown-reading-view {
     position: absolute;
     inset: 0;
     overflow-y: auto;
+}
+
+.starlit-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 18px;
+	height: 18px;
+
+	color: currentColor;
+
+	flex-shrink: 0;
+}
+
+.starlit-icon svg {
+	width: 100%;
+	height: 100%;
+	display: block;
 }
 
 /* =========================================================

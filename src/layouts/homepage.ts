@@ -11,8 +11,12 @@ import { createProject } from "../components/project";
 import { createSubjects } from "../components/subjects";
 import { createTR } from "../components/tr";
 import { createBottom } from "../components/bottom";
+import StarlitPlugin from "../main";
 
-export function createHomepage(app: App) {
+export function createHomepage(
+    app: App,
+    plugin: StarlitPlugin
+) {
 
     const root = document.createElement("div");
 
@@ -23,7 +27,7 @@ export function createHomepage(app: App) {
     root.append(
         hero,
         createQuickActions(app),
-        createFocus(app),
+        createFocus(app, plugin),
         createDeadlines(app),
         createIllustration(app),
         createSchedule(app),

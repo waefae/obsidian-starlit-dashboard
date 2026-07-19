@@ -2,7 +2,7 @@ import {
     Plugin,
     MarkdownView,
     TFile,
-    WorkspaceLeaf
+    WorkspaceLeaf,
 } from "obsidian";
 
 import { createHomepage } from "./layouts/homepage";
@@ -172,7 +172,7 @@ export default class StarlitPlugin extends Plugin {
         const wrapper = document.createElement("div");
         wrapper.classList.add("starlit-mounted");
 
-        wrapper.appendChild(createHomepage(this.app));
+        wrapper.appendChild(createHomepage(this.app, this));
 
         container.appendChild(wrapper);
     }

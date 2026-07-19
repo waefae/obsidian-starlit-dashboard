@@ -1,90 +1,254 @@
-# Obsidian Sample Plugin
+# STΛRLIT
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+> ✨ Welcome back. The stars have been waiting.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+A personal dashboard for Obsidian designed to make your workspace feel alive.
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open modal (simple)" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+Instead of opening another productivity app, STΛRLIT invites you onto your own little stage beneath the stars.
 
-## First time developing plugins?
+> 🚧 **Status**
+>
+> STΛRLIT is currently in its **Alpha** stage.
+>
+> The focus right now is crafting a polished default experience before opening the door to deep customization.
 
-Quick starting guide for new plugin devs:
+---
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+## ✨ Welcome to the stage.
 
-## Releasing new releases
+Some people build dashboards to get more work done.
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+STΛRLIT was built to make workspaces feel inspiring.
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+Because a vault isn't just a collection of notes.
 
-## Adding your plugin to the community plugin list
+It's your creative space.
+Where ideas become projects, and projects become something worth sharing.
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+Welcome beneath the stars.
 
-## How to use
+---
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+## ✨ What is STΛRLIT?
 
-## Manually installing the plugin
+STΛRLIT is a customizable dashboard plugin for Obsidian focused on creating a beautiful, motivating and highly personal workspace.
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+It combines planning, progress tracking and personal organization into a single dashboard while remaining lightweight and extensible.
 
-## Improve code quality with eslint
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/obsidianmd/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
+Rather than becoming another productivity framework, STΛRLIT aims to become a place you genuinely enjoy returning to.
 
-## Funding URL
+---
 
-You can include funding URLs where people who use your plugin can financially support it.
+## 🌌 Philosophy
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+STΛRLIT is built around a few simple ideas.
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
+- Beautiful by default.
+- Lightweight by design.
+- Components over monoliths.
+- Personal before corporate.
+- Designed first, customizable second.
+
+Every feature begins as part of a carefully designed default experience.
+
+Customization comes later—not because it is less important, but because great defaults are the foundation of meaningful personalization.
+
+---
+
+## ✨ What shines tonight
+
+- Homepage dashboard
+- Hero banner
+- Focus widget
+- Deadlines overview
+- Calendar
+- Quick actions
+- Modular widget architecture
+
+---
+
+## 🚧 Currently crafting
+
+- Focus system logic
+- Progress mechanics
+- Asset management
+- Settings infrastructure
+
+---
+
+## 🔮 On the Horizon
+
+### Appearance
+
+- Custom banners
+- Icon packs
+- Theme customization
+- Background illustrations
+- Font customization
+
+### Widgets
+
+- Widget settings
+- Enable / disable widgets
+- Widget-specific customization
+
+### Layout
+
+- Responsive layouts
+- Mobile support
+- Layout presets
+- Drag & drop layout editor
+
+---
+
+## 🏗 Architecture
+
+The project intentionally separates responsibilities.
+
+```
+main.ts
+        │
+        ▼
+layouts
+        │
+        ▼
+components
+        │
+        ▼
+modules
+        │
+        ▼
+utils
 ```
 
-If you have multiple URLs, you can also do:
+Detailed architecture documentation can be found in:
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
+- `docs/STΛRLIT PROJECT.md`
+- `docs/STΛRLIT VISUAL BIBLE.md`
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+│
+├── assets/
+├── components/
+├── layouts/
+├── modules/
+├── utils/
+└── types/
 ```
 
-## API Documentation
+---
 
-See https://docs.obsidian.md
+## ❓ Why...
+
+### Why not Obsidian Canvas?
+
+Canvas is designed around free-form node editing.
+
+STΛRLIT focuses on responsive dashboards built from reusable widgets.
+
+---
+
+### Why is the layout hardcoded?
+
+The current layout is the project's curated experience.
+
+Future versions will allow users to create their own layouts while preserving an official default workspace.
+
+---
+
+### Why isn't everything customizable yet?
+
+Because a good default experience comes first.
+
+The architecture is already being prepared for future customization, but unnecessary complexity is intentionally avoided during early development.
+
+---
+
+## ⭐ Journey
+
+### 🌙 Alpha — Curated Workspace
+
+The foundation.
+
+- Official layout
+- Core widgets
+- Focus system
+- Progress system
+- Stable architecture
+
+### ⭐ Version 1.0 — Your Personal Observatory
+
+Customization begins.
+
+- Widget settings
+- Themes
+- Icon packs
+- Custom banners
+- Asset replacement
+
+### 🌌 Version 2.0 — Build Your Own Sky
+
+Your dashboard becomes your own creation.
+
+- Layout editor
+- Custom widgets
+- Dataview-powered widgets
+- Community widgets
+- Fully customizable workspace
+
+---
+
+## ❤️ Philosophy Before Features
+
+Every new feature must answer one question:
+
+> Does it make STΛRLIT simpler, more maintainable or more enjoyable to use?
+
+If the answer is "not yet", it probably belongs in a future version instead.
+
+Software lasts longer when its foundations are carefully designed.
+
+Features can always wait.
+
+---
+
+## 🤖 AI
+
+Artificial intelligence is used as a creative and development assistant.
+
+It helps with brainstorming, documentation, architecture discussions and implementation prototypes.
+
+Every final design decision, implementation choice and code integration is performed manually by the project author.
+
+---
+
+## 🌌 About
+
+STΛRLIT is an independent passion project created by **waefae**.
+
+It began as a personal dashboard and gradually evolved into a long-term project exploring how a digital workspace can feel.
+
+Every interaction, animation and illustration is designed with one goal:
+
+> Make every session feel like opening night.
+
+---
+
+## 📄 License
+
+The source code is licensed under **GNU GPL v3**.
+
+Original artwork, illustrations, icons, logos and visual branding remain the intellectual property of the project author unless stated otherwise.
+
+See `LICENSE` and `LICENSE-ASSETS` for details.
+
+---
+
+Made with ☕, late-night ideas, countless redesigns and a sky full of stars.
+
+If STΛRLIT makes the start of your day feel a little brighter, then it has already done its job.
