@@ -1,8 +1,8 @@
 import { App, Plugin } from "obsidian";
 import { getVaultImage } from "../utils/image";
 import { ASSET_PATH } from "../constants";
-import { getAllTasks, FocusTask } from "../modules/progress/progress";
-import { FocusSource, saveFocusState, loadFocusState } from "../modules/progress/focusState";
+import { getAllTasks, getProjects, FocusTask, FocusProject } from "../modules/progress/progress";
+import { FocusState, saveFocusState, loadFocusState } from "../modules/progress/focusState";
 import StarlitPlugin from "../main";
 import { eventBus } from "../eventBus";
 
@@ -13,8 +13,8 @@ export class FocusModal {
 
     overlay: HTMLElement | null = null;
     contentEl: HTMLElement | null = null;
-    selectedSource: FocusSource | null = null;
     selectedTasks: FocusTask[] = [];
+    selectedProject: FocusProject | null = null;
     escapeHandler = (event: KeyboardEvent) => {
 
         if (event.key === "Escape") {
@@ -195,13 +195,14 @@ export class FocusModal {
             const state =
                 await loadFocusState(this.plugin);
 
-            if (
-                state.source?.type === "tasks" &&
-                state.source.tasks
-            ) {
-                this.selectedTasks =
-                    state.source.tasks.filter(task => !task.done);
-            }
+            this.selectedTasks = [];
+            this.selectedProject = null;
+
+            this.selectedTasks =
+                state.tasks.filter(task => !task.done);
+
+            this.selectedProject =
+                state.project;
 
             this.renderTasks();
 
@@ -232,6 +233,8 @@ export class FocusModal {
 
                     const type =
                         tab.getAttribute("data-type");
+                    
+                    console.log("TAB:", type);
 
                     if (type === "tasks") {
 
@@ -262,41 +265,40 @@ export class FocusModal {
             "click",
             async () => {
 
-                if (this.selectedTasks.length === 0)
-                    return;
-
                 const currentState =
                     await loadFocusState(this.plugin);
 
                 const completedTasks =
-                    currentState.source?.type === "tasks" &&
-                    currentState.source.tasks
-                        ? currentState.source.tasks.filter(task => task.done)
-                        : [];
+                    currentState.tasks.filter(
+                        task => task.done
+                    );
 
                 const nextTasks = [...completedTasks];
 
                 for (const task of this.selectedTasks) {
-                    const exists = nextTasks.some(existing =>
-                        existing.path === task.path &&
-                        existing.line === task.line
-                    );
+
+                    const exists =
+                        nextTasks.some(existing =>
+                            existing.path === task.path &&
+                            existing.line === task.line
+                        );
 
                     if (!exists) {
+
                         nextTasks.push({
                             ...task,
                             done: false
                         });
+
                     }
+
                 }
 
                 await saveFocusState(
                     this.plugin,
                     {
-                        source: {
-                            type: "tasks",
-                            tasks: nextTasks
-                        },
+                        tasks: nextTasks,
+                        project: this.selectedProject,
                         date: new Date()
                             .toISOString()
                             .split("T")[0] ?? "",
@@ -325,11 +327,7 @@ export class FocusModal {
 
             }
         );
-
-
     }
-
-
 
     renderTasks() {
 
@@ -461,75 +459,131 @@ export class FocusModal {
 
     renderPages() {
 
-
         const body =
             this.contentEl?.querySelector(
                 ".focus-modal-body"
             );
 
-
         if (!body) return;
-
 
         body.innerHTML = "";
 
+        const projects =
+            getProjects(this.app);
 
-        const pages =
-            this.app.vault
-                .getMarkdownFiles();
+        const selectedRoot =
+            this.selectedProject?.rootPath;
 
+        let currentCategory = "";
 
+        projects.forEach(project => {
 
-        pages.forEach(
-            file => {
+            if (project.category !== currentCategory) {
 
+                currentCategory =
+                    project.category;
 
-                const row =
+                const header =
                     document.createElement("div");
 
+                header.className =
+                    "focus-page-category";
 
-                row.className =
-                    "focus-page-row";
+                header.textContent =
+                    currentCategory;
 
-
-                row.textContent =
-                    file.basename;
-
-
-
-                row.onclick = () => {
-
-
-                    this.selectedSource = {
-
-                        type: "page",
-
-                        project: {
-
-                            title: "",
-
-                            rootPath: "",
-
-                            lastPage: "",
-
-                            totalTasks: 0,
-
-                            completedTasks: 0
-    
-                        }
-
-                    };
-
-
-                };
-
-
-                body.appendChild(row);
-
+                body.appendChild(header);
 
             }
-        );
 
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "focus-page-row";
+
+            const title =
+                document.createElement("div");
+
+            title.className =
+                "focus-page-title";
+
+            const radio =
+                document.createElement("div");
+
+            radio.className =
+                "focus-page-radio";
+
+            title.appendChild(radio);
+
+            const label =
+                document.createElement("span");
+
+            label.textContent =
+                project.title;
+
+            title.appendChild(label);
+
+            const stats =
+                document.createElement("div");
+
+            stats.className =
+                "focus-page-stats";
+
+            const open =
+                project.totalTasks -
+                project.completedTasks;
+
+            const percent =
+                Math.round(
+                    project.completedTasks /
+                    project.totalTasks *
+                    100
+                );
+
+            stats.textContent =
+                `${open} open • ${percent}%`;
+
+            if (
+                selectedRoot ===
+                project.rootPath
+            ) {
+                row.classList.add("selected");
+                radio.classList.add("selected");
+            }
+
+            row.append(
+                title,
+                stats
+            );
+
+            row.onclick = () => {
+
+                this.selectedProject =
+                    project;
+
+                body.querySelectorAll(
+                    ".focus-page-row"
+                ).forEach(element =>
+                    element.classList.remove(
+                        "selected"
+                    )
+                );
+
+                body.querySelectorAll(
+                    ".focus-page-radio"
+                ).forEach(element =>
+                    element.classList.remove("selected")
+                );
+
+                radio.classList.add("selected");
+                row.classList.add("selected");
+
+            };
+
+            body.appendChild(row);
+
+        });
 
     }
 

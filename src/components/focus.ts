@@ -1,11 +1,11 @@
-import { App } from "obsidian";
+import { App, TFile } from "obsidian";
 import { getVaultImage } from "../utils/image";
 import { createProgressBar } from "./progressBar";
 import { ASSET_PATH } from "../constants";
 import { FocusModal } from "./focusModal";
 import { loadFocusState } from "../modules/progress/focusState";
 import StarlitPlugin from "../main";
-import { FocusTask } from "../modules/progress/progress";
+import { FocusTask, getCurrentOpenTasks } from "../modules/progress/progress";
 import { updateFocusedTaskDone } from "../modules/progress/focusState";
 import { eventBus } from "../eventBus";
 import { toggleTask } from "../modules/progress/toggleTask";
@@ -167,6 +167,15 @@ export function createFocus(
     const tasksContainer =
     focus.querySelector(".focus-tasks") as HTMLElement;
 
+    const titleEl =
+        focus.querySelector(".course-title") as HTMLElement;
+
+    const subtitleEl =
+        focus.querySelector(".course-subtitle") as HTMLElement;
+
+    const counterEl =
+        focus.querySelector(".course-counter") as HTMLElement;
+
     async function refreshFocus() {
 
         tasksContainer.innerHTML = "";
@@ -174,12 +183,70 @@ export function createFocus(
         const state =
             await loadFocusState(plugin);
 
-        const source = state.source;
+        const tasks = state.tasks;
+        const project = state.project;
 
-        if (
-            source?.type !== "tasks" ||
-            !source.tasks
-        ) {
+        if (project) {
+
+            const currentOpen =
+                getCurrentOpenTasks(
+                    app,
+                    project
+                );
+
+            const completedSinceSelection =
+                Math.max(
+                    0,
+                    project.initialOpenTasks -
+                    currentOpen
+                );
+
+            titleEl.textContent =
+                project.title;
+
+            const file =
+                app.vault.getAbstractFileByPath(
+                    project.lastPage
+                );
+
+            if (file instanceof TFile) {
+
+                subtitleEl.textContent =
+                    file.basename;
+
+                subtitleEl.onclick = async () => {
+
+                    await app.workspace
+                        .getLeaf(true)
+                        .openFile(file);
+
+                };
+
+            } else {
+
+                subtitleEl.textContent = "";
+
+                subtitleEl.onclick = null;
+
+            }
+
+            counterEl.textContent =
+                `${completedSinceSelection} / ${project.initialOpenTasks}`;
+
+        } else {
+
+            titleEl.textContent =
+                "No project selected";
+
+            subtitleEl.textContent = "";
+
+            subtitleEl.onclick = null;
+
+            counterEl.textContent = "";
+
+        }
+
+        if (tasks.length === 0) {
             return;
         }
 
@@ -187,7 +254,7 @@ export function createFocus(
             app,
             plugin,
             tasksContainer,
-            source.tasks
+            tasks
         );
     }
 
@@ -206,9 +273,10 @@ export function createFocus(
         ".focus-badge"
     ) as HTMLElement;
 
-    badge.appendChild(
-        createProgressBar(app)
-    );
+    const progressBar =
+        createProgressBar(app, plugin);
+
+    badge.appendChild(progressBar);
 
     void refreshFocus();
 
